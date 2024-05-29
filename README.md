@@ -1,2 +1,5 @@
-# criar-arquivos-padrao-QGIS
-Cria camadas shapefile padrões no QGIS, passando Nome, tipo de geometria e campos a serem criados 
+# Automação para criar arquivos shapefile no QGIS com PYTHON
+
+## Nosso objetivo aqui é automatizar o processo de criação de várias camadas shapefile padrões no QGIS utiuzando PYTHON
+
+
