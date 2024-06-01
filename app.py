@@ -36,6 +36,8 @@ for key, value in shapefiles.items():
     camada = QgsVectorLayer(value + f'?crs={epsg}', key, 'memory')
 
     camada.dataProvider().addAttributes([QgsField('ID', QVariant.Int)])
+    camada.dataProvider().addAttributes([QgsField('Nome', QVariant.String)])
+    camada.dataProvider().addAttributes([QgsField('Valor', QVariant.Double)])
     camada.updateFields()
 
     url_final = os.path.join(diretorio, key)
