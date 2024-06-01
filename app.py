@@ -33,15 +33,21 @@ shapefiles = {
 
 for key, value in shapefiles.items():
 
+    # Cria camadas na memória
     camada = QgsVectorLayer(value + f'?crs={epsg}', key, 'memory')
 
+    # Adiciona campos às camadas
     camada.dataProvider().addAttributes([QgsField('ID', QVariant.Int)])
     camada.dataProvider().addAttributes([QgsField('Nome', QVariant.String)])
     camada.dataProvider().addAttributes([QgsField('Valor', QVariant.Double)])
     camada.updateFields()
 
+    # Montar os nomes dos diretórios + shps criados
     url_final = os.path.join(diretorio, key)
 
+    # Checa se os arquivos já existem, senão, são criados.
+    # Isso evita que arquivos sejam sobreescritos
+    
     if os.path.isfile(url_final + '.shp'):
         print(f'O Arquivo {url_final} já existe, altere o diretório no início do código')
         print('')
